@@ -59,7 +59,7 @@ function Formulario() {
     try {
       const formattedDate = datos.fechaNacimiento.toISOString().split('T')[0];
       console.log(formattedDate);
-      const response = await fetch('http://127.0.0.1:3006/api/solicitudes/crear', {
+      const response = await fetch('https://apiuv.azurewebsites.net/api/solicitudes/crear', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

@@ -17,7 +17,7 @@ const Solicitud = () => {
     const [searchResult, setSearchResult] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3006/api/solicitudes')
+        fetch('https://apiuv.azurewebsites.net/api/solicitudes')
             .then(response => response.json())
             .then(data => {
                 setSolicitudes(data.info || []);
@@ -44,7 +44,7 @@ const Solicitud = () => {
 
     const handleSearch = () => {
         if (searchInput.trim() !== '') {
-            fetch(`http://localhost:8095/api/v1/personas/obtener/identificacion/${searchInput}`)
+            fetch(`https://apiuv.azurewebsites.net/api/v1/personas/obtener/identificacion/${searchInput}`)
                 .then(response => response.json())
                 .then(data => {
                     if (data.code === 200) {
@@ -58,7 +58,7 @@ const Solicitud = () => {
                     console.error('Error al buscar solicitud:', error);
                 });
         } else {
-            fetch('http://localhost:8095/api/v1/personas')
+            fetch('https://apiuv.azurewebsites.net/api/v1/personas')
                 .then(response => response.json())
                 .then(data => {
                     setSolicitudes(data.info || []);

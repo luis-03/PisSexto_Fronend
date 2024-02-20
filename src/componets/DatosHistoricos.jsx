@@ -14,7 +14,7 @@ const DatosHistoricos = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:3006/api/disp'); // Updated API endpoint
+                const response = await fetch('https://apiuv.azurewebsites.net/api/disp'); // Updated API endpoint
                 if (!response.ok) {
                     throw new Error('Error al obtener los datos');
                 }
@@ -43,7 +43,7 @@ const DatosHistoricos = () => {
 
     const exportToExcel = async () => {
         try {
-            const response = await fetch('http://localhost:3006/api/disp');
+            const response = await fetch('https://apiuv.azurewebsites.net/api/disp');
             if (!response.ok) {
                 throw new Error('Error al obtener los datos para exportar');
             }

@@ -20,7 +20,7 @@ const Persona = () => {
 
     const fetchPersonas = async () => {
         try {
-            const response = await fetch('http://localhost:3006/api/personas');
+            const response = await fetch('https://apiuv.azurewebsites.net/api/personas');
             const data = await response.json();
             setPersonas(data.info || []);
         } catch (error) {
@@ -44,7 +44,7 @@ const Persona = () => {
 
     const handleSearch = async () => {
         try {
-            const response = await fetch(`http://localhost:3006/api/personas/buscar/${searchInput}`);
+            const response = await fetch(`https://apiuv.azurewebsites.net/api/personas/buscar/${searchInput}`);
             const data = await response.json();
             setSearchResult(data.info ? [data.info] : []);
             setSearchInput('');

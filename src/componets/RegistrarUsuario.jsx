@@ -26,7 +26,7 @@ const RegistrarUsuario = ({ show, handleClose }) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await fetch('http://localhost:3006/api/personas/guardar', {
+            const response = await fetch('https://apiuv.azurewebsites.net/api/personas/guardar', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

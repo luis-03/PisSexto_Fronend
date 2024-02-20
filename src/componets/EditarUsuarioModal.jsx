@@ -41,7 +41,7 @@ const EditarUsuarioModal = ({ show, handleClose, usuario }) => {
       // Obtener el external_id del usuario si está disponible
       const external_id = usuario ? usuario.external_id : '';
   
-      const response = await fetch('http://localhost:3006/api/personas/modificar', {
+      const response = await fetch('https://apiuv.azurewebsites.net/api/personas/modificar', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -9,7 +9,7 @@ const TablaDatosHistorico = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:3006/api/disp');
+        const response = await fetch('https://apiuv.azurewebsites.net/api/disp');
         const data = await response.json();
         setDatosHistoricos(data.info);
       } catch (error) {

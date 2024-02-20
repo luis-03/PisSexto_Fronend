@@ -31,7 +31,7 @@ const Nav = () => {
                 <Link className="nav-link" to="/solicitud" style={{ color: 'white' }}>Solicitudes</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/dispositivolista" style={{ color: 'white' }}>Gestionar Dispositivos</Link>
+                <Link className="nav-link" to="/dispositivolista" style={{ color: 'white' }}>Ver Dispositivos</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/menu" style={{ color: 'white' }}>Sobre el proyecto</Link>
