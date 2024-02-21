@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom';
-import {Navigate, Outlet} from 'react-router-dom'
+import { Navigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const Nav = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
+
   const handleLogout = () => {
-    localStorage.clear(); 
-    <Navigate to='/'/>
+    localStorage.clear();
+    setIsLoggedIn(false);
+    return <Navigate to='/' />;
   };
 
   return (
@@ -21,15 +25,19 @@ const Nav = () => {
               <li className="nav-item">
                 <Link className="nav-link" to="/DatosHistoricos" style={{ color: 'white' }}>Datos Historicos</Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/peticiones" style={{ color: 'white' }}>Peticiones</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/persona" style={{ color: 'white' }}>Personas</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/solicitud" style={{ color: 'white' }}>Solicitudes</Link>
-              </li>
+              {isLoggedIn && (
+                <>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/peticiones" style={{ color: 'white' }}>Peticiones</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/persona" style={{ color: 'white' }}>Personas</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/solicitud" style={{ color: 'white' }}>Solicitudes</Link>
+                  </li>
+                </>
+              )}
               <li className="nav-item">
                 <Link className="nav-link" to="/dispositivolista" style={{ color: 'white' }}>Ver Dispositivos</Link>
               </li>
@@ -39,9 +47,11 @@ const Nav = () => {
               <li className="nav-item">
                 <Link className="nav-link" to="/login" style={{ color: 'white' }}>Sesion</Link>
               </li>
-              <li className="nav-item">
-                <button className="nav-link btn btn-link" onClick={handleLogout} style={{ color: 'white', textDecoration: 'none', border: 'none', background: 'none' }}>Cerrar Sesión</button>
-              </li>
+              {isLoggedIn && (
+                <li className="nav-item">
+                  <button className="nav-link btn btn-link" onClick={handleLogout} style={{ color: 'white', textDecoration: 'none', border: 'none', background: 'none' }}>Cerrar Sesión</button>
+                </li>
+              )}
             </ul>
           </div>
         </div>
