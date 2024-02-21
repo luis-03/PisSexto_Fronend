@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Table, Button, Container, Row, Col, Form } from 'react-bootstrap';
-import { toggleCuenta } from '../hooks/Conexion';
+import { toggleCuenta, AprobarSolicitud } from '../hooks/Conexion';
 import RegistrarUsuario from "./RegistrarUsuario";
 import EditarUsuarioModal from './EditarUsuarioModal';
 

@@ -1,6 +1,6 @@
 import mensajes from "../utilidades/Mensajes";
 
-const URL = "http://localhost:3006/api"
+const URL = "https://apiuv.azurewebsites.net/api"
 export const URLex =  URL + "/document/";
 
 export const CalificarEntregable = async (data, key) => {

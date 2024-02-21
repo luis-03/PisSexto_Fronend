@@ -5,6 +5,7 @@ import EditarUsuarioModal from './EditarUsuarioModal';
 import RegistrarUsuario from "./RegistrarUsuario";
  // Importar el componente de modal de creación
 import PropTypes from 'prop-types';
+import mensajes from '../utilidades/Mensajes';
 
 const Persona = () => {
     const [personas, setPersonas] = useState([]);
@@ -105,8 +106,10 @@ const PersonaTable = ({ personas, onEdit }) => {
         const data = {
             external_id: persona.cuenta.external_id
         }
-        console.log(data)
-        toggleCuenta(data)
+        console.log(data);
+        toggleCuenta(data);
+        mensajes('Se ha cambiado el estado del usuario','success','OK!');
+        window.location.reload();
     };
 
     return (

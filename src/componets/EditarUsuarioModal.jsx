@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router';
+import { Navigate } from 'react-router-dom';
 import mensajes from '../utilidades/Mensajes';
 const EditarUsuarioModal = ({ show, handleClose, usuario }) => {
+  const navegation = useNavigate();
   const [datosUsuario, setDatosUsuario] = useState({
     external_id: '', // Agrega el campo external_id al estado
     nombres: '',
@@ -12,7 +14,7 @@ const EditarUsuarioModal = ({ show, handleClose, usuario }) => {
     fecha_nacimiento: '',
     telefono: ''
   });
-  //const navegation = useNavigate();
+  
 
   useEffect(() => {
     if (usuario) {
@@ -54,12 +56,15 @@ const EditarUsuarioModal = ({ show, handleClose, usuario }) => {
         console.log('Usuario editado correctamente:', data);
         handleClose();
         mensajes(data.msg);
-        //navegation('/EditarUsuarioModal');
+        //<Navigate to='/' />
+        window.location.reload();
       } else {
+        mensajes('Error al editar usuario:','error','error');
         console.error('Error al editar usuario:', data);
         // Manejar el error en la interfaz de usuario, si es necesario
       }
     } catch (error) {
+      mensajes('Error al enviar la solicitud','error','error');
       console.error('Error al enviar la solicitud:', error);
       // Manejar el error en la interfaz de usuario, si es necesario
     }

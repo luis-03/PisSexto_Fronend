@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Modal, Button, Form } from 'react-bootstrap';
+import mensajes from '../utilidades/Mensajes';
 
 const AgregarUsuarioModal = ({ show, handleClose }) => {
     const [usuario, setUsuario] = useState({
@@ -45,13 +46,16 @@ const AgregarUsuarioModal = ({ show, handleClose }) => {
 
             if (response.ok) {
                 console.log('Usuario registrado exitosamente:', data);
+                mensajes('Usuario registrado exitosamente','success');
                 handleClose();
             } else {
                 console.error('Error al registrar usuario:', data);
+                mensajes('Error al registrar usuario','error','error');
                 setError(data.data.evento);
             }
         } catch (error) {
             console.error('Error al enviar la solicitud:', error);
+            mensajes(error,'error','Error al enviar la solicitud');
             setError('Error al enviar la solicitud');
         }
     };

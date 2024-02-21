@@ -19,6 +19,7 @@ import Formulario from './componets/Formulario'
 import Persona from './componets/Persona'
 import Peticiones from './componets/Peticiones'
 import Solicitud from './componets/solicitud'
+import mensajes from './utilidades/Mensajes';
 function App() {
   const Middeware = ({ children }) => {
     const autenticado = estaSesion();
@@ -26,6 +27,7 @@ function App() {
     if (autenticado) {
       return children;
     } else {
+      
       return <Navigate to='/login' state={location} />;
     }
   }
@@ -34,6 +36,7 @@ function App() {
     if (autenticado) {
       return children;
     } else {
+      mensajes('Porfavor inicie sesion para continuar...','warning','Inicie sesion')
       return <Navigate to='/' />;
     }
   }
@@ -48,7 +51,7 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/persona' element={<MiddewareSesion><Persona show={false} /></MiddewareSesion>}/>
         <Route path='/peticiones' element={<MiddewareSesion><Peticiones show={false} /></MiddewareSesion>}/>
-        <Route path='/solicitud' element={<Solicitud show={false} />}/>
+        <Route path='/solicitud' element={<MiddewareSesion><Solicitud show={false} /></MiddewareSesion>}/>
         <Route path='/dispositivolista' element={<ListarDisositivos/>}/>
         <Route path='/dispositivo' element={<GestionarDisositivos/>}/>
         <Route path='/menu' element={<Menu/>}/>
