@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import { useState } from 'react';
+import Notification from './Notification';
+
+
 
 const Nav = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
@@ -15,6 +18,7 @@ const Nav = () => {
     <div>
       {/* Navbar */}
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark justify-content-end">
+        <Notification/>
         <div className="container-fluid">
           <Link className="navbar-brand" to="/" style={{ color: 'white' }}>Inicio</Link>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
